@@ -20,7 +20,6 @@ section {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     width: 600px;
-
 }
 
 .form-container {
@@ -38,6 +37,7 @@ label {
     display: block;
     margin-bottom: 5px;
     color: #333;
+    width: 100%; /* Adicionado para ocupar 100% da largura em dispositivos menores */
 }
 
 input,
@@ -88,6 +88,24 @@ tbody tr:nth-child(odd) {
 
 tbody tr:nth-child(even) {
     background-color: #fff;
+}
+
+/* Adicionado estilo para tornar a tabela responsiva */
+@media screen and (max-width: 600px) {
+
+    .form-group{
+        width: 50%;
+    }
+
+    th,
+    td {
+        display: block;
+        width: 100%;
+    }
+
+    label {
+        text-align: left; /* Ajuste para manter o alinhamento à esquerda em dispositivos menores */
+    }
 }
 
 .info-container {
