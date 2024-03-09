@@ -21,6 +21,7 @@ function exibirInformacoes(event) {
     var valorImovel = document.getElementById('valorImovel').value;
     var dataContatoCorretor = document.getElementById('dataContatoCorretor').value;
     var informacoes = document.getElementById('informacoes').value;
+    var statusCliente = document.getElementById('statusCliente').value; // Novo campo
 
     var cliente = {
         idCliente,
@@ -30,7 +31,8 @@ function exibirInformacoes(event) {
         endereco,
         valorImovel,
         dataContatoCorretor,
-        informacoes
+        informacoes,
+        statusCliente // Adiciona o statusCliente ao objeto cliente
     };
 
     if (clienteEmEdicao !== null) {
@@ -76,6 +78,7 @@ function editarCliente(index) {
     document.getElementById('valorImovel').value = cliente.valorImovel;
     document.getElementById('dataContatoCorretor').value = cliente.dataContatoCorretor;
     document.getElementById('informacoes').value = cliente.informacoes;
+    document.getElementById('statusCliente').value = cliente.statusCliente; // Atualiza o campo de seleção
 }
 
 function formatarValorImovel(valorImovel) {
@@ -88,6 +91,9 @@ function atualizarTabelaClientes() {
 
     clientesSalvos.forEach(function (cliente, index) {
         var row = document.createElement('tr');
+
+        // Adiciona uma classe ao <td> para aplicar a cor correspondente
+        var statusClass = cliente.statusCliente === 'ativo' ? 'status-ativo' : 'status-inativo';
         row.innerHTML = '<td>' + cliente.idCliente + '</td>' +
             '<td>' + cliente.nomeCorretor + '</td>' +
             '<td>' + cliente.nomeCliente + '</td>' +
@@ -96,6 +102,7 @@ function atualizarTabelaClientes() {
             '<td>' + formatarValorImovel(cliente.valorImovel) + '</td>' +
             '<td>' + cliente.dataContatoCorretor + '</td>' +
             '<td>' + cliente.informacoes + '</td>' +
+            '<td class="' + statusClass + '"></td>' + // Adiciona a classe diretamente aqui
             '<td class="actions-container">' +
             '<button class="edit" onclick="editarCliente(' + index + ')">Editar</button>' +
             '<button class="delete" onclick="removerClienteSalvo(' + index + ')">Apagar dados</button>' +
