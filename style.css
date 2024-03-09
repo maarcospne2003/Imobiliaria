@@ -90,6 +90,20 @@ tbody tr:nth-child(even) {
     background-color: #fff;
 }
 
+/* Estilo para status Ativo */
+.status-ativo {
+    background-color: green;
+    color: white;
+    text-align: center;
+}
+
+/* Estilo para status Inativo */
+.status-inativo {
+    background-color: red;
+    color: white;
+    text-align: center;
+}
+
 /* Adicionado estilo para tornar a tabela responsiva */
 @media screen and (max-width: 600px) {
 
@@ -152,3 +166,4 @@ tbody tr:nth-child(even) {
 .actions-container button.delete:hover {
     background-color: #c0392b;
 }
+
